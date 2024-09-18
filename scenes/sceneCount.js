@@ -88,6 +88,7 @@ class SceneCount extends Scene {
       elemWin.addEventListener("click", e => {
         p.score += p.bet || 0;
         p.history.push(displayScore(p.bet));
+        p.bet = 0;
         this.start();
 
         save();
@@ -98,7 +99,7 @@ class SceneCount extends Scene {
       elemLose.addEventListener("click", e => {
         p.score -= p.bet || 0;
         p.history.push(displayScore(p.bet * -1));
-        console.log(displayScore(p.bet * -1));
+        p.bet = 0;
         this.start();
         
 
