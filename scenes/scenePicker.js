@@ -10,9 +10,22 @@ class ScenePicker extends Scene {
     this.elem.replaceChildren();
 
 
-    for (let g of games) {
+    for (let gi = 0; gi < games.length; gi++) {
+      let g = games[gi];
+      
       let elem = document.createElement("div");
       elem.className = "game";
+
+      
+      let elemRemove = document.createElement("button");
+      elemRemove.className = "name negative";
+      elemRemove.innerText = "X";
+      elemRemove.addEventListener("click", e => {
+        games.splice(gi, 1);
+        this.start();
+
+        save();
+      });
 
       let elemName = document.createElement("button");
       elemName.className = "name";
@@ -23,6 +36,7 @@ class ScenePicker extends Scene {
         setScene(scenes.count);
       });
 
+      elem.appendChild(elemRemove);
       elem.appendChild(elemName);
   
   

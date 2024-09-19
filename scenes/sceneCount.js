@@ -9,6 +9,13 @@ class SceneCount extends Scene {
 
     this.elem.replaceChildren();
 
+    
+    let elemBack = document.createElement("button");
+    elemBack.className = "name";
+    elemBack.innerText = "<";
+    elemBack.addEventListener("click", e => {
+      setScene(scenes.picker);
+    });
 
     let titleElem = document.createElement("div");
     titleElem.className = "title";
@@ -27,6 +34,7 @@ class SceneCount extends Scene {
     dealerElem.appendChild(dealerElemScore);
 
 
+    this.elem.appendChild(elemBack);
     this.elem.appendChild(titleElem);
     this.elem.appendChild(dealerElem);
 
@@ -37,6 +45,16 @@ class SceneCount extends Scene {
 
       let elem = document.createElement("div");
       elem.className = "person";
+
+      let elemRemove = document.createElement("button");
+      elemRemove.className = "name negative";
+      elemRemove.innerText = "X";
+      elemRemove.addEventListener("click", e => {
+        game.players.splice(pi, 1);
+        this.start();
+
+        save();
+      });
 
       let elemName = document.createElement("div");
       elemName.className = "name";
@@ -87,7 +105,17 @@ class SceneCount extends Scene {
       elemWin.innerText = "win";
       elemWin.addEventListener("click", e => {
         p.score += p.bet || 0;
+        game.dealer.score = game.players.reduce((partialSum, a) => partialSum - a.score, 0);
         p.history.push(displayScore(p.bet));
+        p.bet = 0;
+        this.start();
+
+        save();
+      })
+      let elemPush = document.createElement("button");
+      elemPush.className = "outcome";
+      elemPush.innerText = "push";
+      elemPush.addEventListener("click", e => {
         p.bet = 0;
         this.start();
 
@@ -98,6 +126,7 @@ class SceneCount extends Scene {
       elemLose.innerText = "lose";
       elemLose.addEventListener("click", e => {
         p.score -= p.bet || 0;
+        game.dealer.score = game.players.reduce((partialSum, a) => partialSum - a.score, 0);
         p.history.push(displayScore(p.bet * -1));
         p.bet = 0;
         this.start();
@@ -107,12 +136,14 @@ class SceneCount extends Scene {
       })
 
 
+      elem.appendChild(elemRemove);
       elem.appendChild(elemName);
       elem.appendChild(elemScore);
       elem.appendChild(elemBet);
       elem.appendChild(elemDouble);
       elem.appendChild(elemBJ);
       elem.appendChild(elemWin);
+      elem.appendChild(elemPush);
       elem.appendChild(elemLose);
   
   

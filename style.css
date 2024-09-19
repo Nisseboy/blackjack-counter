@@ -26,6 +26,14 @@ html, body {
 }
 
 
+
+button {
+  background: none;
+  color: currentColor;
+  font-size: 1rem;
+  width: fit-content;
+}
+
 .scene.count {
   .title {
     font-weight: bolder;
