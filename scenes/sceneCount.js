@@ -11,7 +11,7 @@ class SceneCount extends Scene {
 
     
     let elemBack = document.createElement("button");
-    elemBack.className = "name";
+    elemBack.className = "name back";
     elemBack.innerText = "<";
     elemBack.addEventListener("click", e => {
       setScene(scenes.picker);

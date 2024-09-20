@@ -34,6 +34,10 @@ button {
   width: fit-content;
 }
 
+.back {
+  margin-bottom: 1rem;
+}
+
 .scene.count {
   .title {
     font-weight: bolder;

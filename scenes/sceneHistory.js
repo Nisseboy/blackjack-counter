@@ -10,7 +10,7 @@ class SceneHistory extends Scene {
     this.elem.replaceChildren();
     
     let elemBack = document.createElement("button");
-    elemBack.className = "name";
+    elemBack.className = "name back";
     elemBack.innerText = "<";
     elemBack.addEventListener("click", e => {
       setScene(scenes.count);
