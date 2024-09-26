@@ -1,16 +1,14 @@
 class Scene {
-  constructor(className) {
-    this.className = className;
+  constructor() {
+
   }
   start() { 
-    this.elem = document.getElementsByClassName(`scene ${this.className}`)[0];
+    this.elem = document.getElementsByClassName(`scene`)[0];
     if (!this.elem) return;
-    
-    this.elem.classList.toggle("hidden", false);
+
+    this.elem.replaceChildren();
   }
   stop() {    
     if (!this.elem) return;
-
-    this.elem.classList.toggle("hidden", true);
   }
 }

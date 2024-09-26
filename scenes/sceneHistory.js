@@ -1,13 +1,11 @@
 class SceneHistory extends Scene {
   constructor() {
-    super("history");
+    super();
   }
 
   start() {
     super.start();
     if (!this.elem) return;
-
-    this.elem.replaceChildren();
     
     let elemBack = document.createElement("button");
     elemBack.className = "name back";

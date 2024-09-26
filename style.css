@@ -38,103 +38,54 @@ button {
   margin-bottom: 1rem;
 }
 
-.scene.count {
-  .title {
-    font-weight: bolder;
+.title {
+  font-weight: bolder;
 
-    margin-bottom: 1rem;
-  }
-
-  .person {
-      display: flex;
-      gap: 1ch;
-
-      padding: 0.2rem;
-
-      border: 1px solid white;
-
-      width: fit-content;
-
-      margin-bottom: 0.2rem;
-
-      .bet {
-        background: none;
-        color: currentColor;
-        font-size: 1rem;
-        padding: 0;
-
-        width: 5rem;
-      }
-
-      button {
-        background: none;
-        color: currentColor;
-        font-size: 1rem;
-      }
-  }
-  .person.dealer {
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  .history {
-    margin-top: 1rem;
-  }
+  margin-bottom: 1rem;
 }
 
-.scene.picker {
-  .game {
-    
+.person {
+    display: flex;
+    gap: 1ch;
+
+    padding: 0.2rem;
+
+    border: 1px solid white;
+
+    width: fit-content;
 
     margin-bottom: 0.2rem;
-  }
-
-  button {
-    background: none;
-    color: currentColor;
-    font-size: 1rem;
-  }
+}
+.person.dealer {
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.scene.history {
-  .title {
-    font-weight: bolder;
+.history {
+  margin-top: 1rem;
+}
 
-    margin-bottom: 1rem;
-  }
+button {
+  background: none;
+  color: currentColor;
+  font-size: 1rem;
+}
 
-  .person {
-      display: flex;
-      gap: 1ch;
+input {
+  background: none;
+  color: currentColor;
+  font-size: 1rem;
+  padding: 0;
+}
 
-      padding: 0.2rem;
+.game {
+  
 
-      border: 1px solid white;
+  margin-bottom: 0.2rem;
+}
 
-      width: fit-content;
-
-      margin-bottom: 0.2rem;
-
-      .bet {
-        background: none;
-        color: currentColor;
-        font-size: 1rem;
-        padding: 0;
-
-        width: 5rem;
-      }
-
-      button {
-        background: none;
-        color: currentColor;
-        font-size: 1rem;
-      }
-  }
-  .person.dealer {
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
+.edit-action {
+  margin-right: 0.2rem;
 }
 
 .positive {

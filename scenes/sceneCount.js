@@ -1,13 +1,11 @@
 class SceneCount extends Scene {
   constructor() {
-    super("count");
+    super();
   }
 
   start() {
     super.start();
     if (!this.elem) return;
-
-    this.elem.replaceChildren();
 
     
     let elemBack = document.createElement("button");
@@ -45,16 +43,6 @@ class SceneCount extends Scene {
 
       let elem = document.createElement("div");
       elem.className = "person";
-
-      let elemRemove = document.createElement("button");
-      elemRemove.className = "name negative";
-      elemRemove.innerText = "X";
-      elemRemove.addEventListener("click", e => {
-        game.players.splice(pi, 1);
-        this.start();
-
-        save();
-      });
 
       let elemName = document.createElement("div");
       elemName.className = "name";
@@ -136,7 +124,6 @@ class SceneCount extends Scene {
       })
 
 
-      elem.appendChild(elemRemove);
       elem.appendChild(elemName);
       elem.appendChild(elemScore);
       elem.appendChild(elemBet);
@@ -155,23 +142,10 @@ class SceneCount extends Scene {
 
     let elemName = document.createElement("button");
     elemName.className = "name";
-    elemName.innerText = "+";
+    elemName.innerText = "✎";
 
     elemName.addEventListener("click", e => {
-      let name = prompt("name?");
-      if (!name) return;
-      
-      let p = {
-        name: name,
-        score: 0,
-        bet: 0,
-        history: [],
-      }
-      game.players.push(p);
-      
-      save();
-
-      this.start();
+      setScene(scenes.countEdit);
     });
 
     elem.appendChild(elemName);

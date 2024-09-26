@@ -6,8 +6,10 @@ let game;
 
 let scenes = {
   count: new SceneCount(),
+  countEdit: new SceneCountEdit(),
   history: new SceneHistory(),
   picker: new ScenePicker(),
+  pickerEdit: new ScenePickerEdit(),
 }
 let scene;
 setScene(scenes.picker);
