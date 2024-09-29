@@ -132,6 +132,8 @@ input {
   width: 0.4rem;
   height: 0.4rem !important;
   background-color: green;
+
+  display: none;
 }
 .awesome-gif {
   position: absolute;
