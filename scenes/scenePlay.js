@@ -29,7 +29,11 @@ class ScenePlay extends Scene {
     this.count = 0;
     this.shuffleCards();
 
+    this.counter = {elem: document.createElement("div"), x: 0, y: 0};
+    this.counter.elem.className = "card counter";
+    this.setPos(this.counter, 0, 0);
 
+    this.elem.appendChild(this.counter.elem);
   }
 
   start() {
@@ -64,7 +68,6 @@ class ScenePlay extends Scene {
         relx = pos.pageX - 10;
         rely = pos.pageY - 60;
         this.elemCount.innerText = this.cards?.length + "";
-        if (this.cards.length == 12) alert("12 cards left");
       }
 
       dragover(e);
@@ -115,6 +118,8 @@ class ScenePlay extends Scene {
     if (v == "2" || v == "3" || v == "4" || v == "5" || v == "6") this.count++;
     if (v == "0" || v == "J" || v == "Q" || v == "K" || v == "A") this.count--; 
 
+    this.setPos(this.counter, Math.max(this.count, 0) * 10, Math.max(-this.count, 0) * 10);
+
     return card;
   }
   shuffleCards() {
@@ -133,7 +138,7 @@ class ScenePlay extends Scene {
   clear() {
     let cards = this.elem.getElementsByClassName("card");
     for (let i = 0; i < cards.length;) {
-      if (!cards[i].classList.contains("deck")) cards[i].remove();
+      if (!cards[i].classList.contains("deck") && !cards[i].classList.contains("counter")) cards[i].remove();
       else i++;
     }
   }

@@ -146,21 +146,5 @@ class SceneCount extends Scene {
     elem.appendChild(elemName);
   
     this.elem.appendChild(elem);
-
-
-    let elem2 = document.createElement("div");
-    elem2.className = "person history";
-
-    let elem2Name = document.createElement("button");
-    elem2Name.className = "name";
-    elem2Name.innerText = "View history";
-
-    elem2Name.addEventListener("click", e => {
-      setScene(scenes.history);
-    });
-
-    elem2.appendChild(elem2Name);
-  
-    this.elem.appendChild(elem2);
   }
 }

@@ -105,14 +105,42 @@ input {
 .scene.play {
   position: relative;
   flex-direction: row;
+  * {
+    z-index: 1;
+    height: 1.5rem;
+  };
+
+  height: calc(100vh - 1.5rem);
+
+  background-image: url("https://media.istockphoto.com/id/1198045419/photo/poker-table-in-casino-top-view.jpg?s=612x612&w=0&k=20&c=B0c-pT4GqZ4qBJkNDC8TYSs7C018DNEROiFJOr1QAC8=");
+  background-size: cover;
 }
 .card {
   position: absolute;
 
   width: 4rem;
-  height: 5.6rem;
+  height: 5.6rem !important;
   user-select: none;
 
   background-image: url("https://deckofcardsapi.com/static/img/back.png");
   background-size: cover;
+}
+.counter {
+  background-image: none !important;
+  width: 0.4rem;
+  height: 0.4rem !important;
+  background-color: green;
+}
+.awesome-gif {
+  position: absolute;
+
+  width: 20rem;
+  height: 20rem !important;
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 0 !important;
+
+  
 }
