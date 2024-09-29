@@ -26,6 +26,7 @@ class ScenePlay extends Scene {
     this.deckCard.elem.classList.add("deck");
 
     this.deck = [];
+    this.count = 0;
     this.shuffleCards();
 
 
@@ -106,10 +107,17 @@ class ScenePlay extends Scene {
     if (this.cards.length == 0) this.shuffle();
 
     let i = Math.floor(Math.random() * this.cards.length);
-    return this.cards.splice(i, 1)[0];
+    let card = this.cards.splice(i, 1)[0];
+
+    let v = card[0];
+    if (v == "2" || v == "3" || v == "4" || v == "5" || v == "6") this.count++;
+    if (v == "0" || v == "J" || v == "Q" || v == "K" || v == "A") this.count--; 
+
+    return card;
   }
   shuffleCards() {
     this.cards = [];
+    this.count = 0;
     for (let i = 0; i < 4; i++) {
       let color = ["S","H","D","C"][i]
       for (let j = 0; j < 13; j++) {
@@ -126,8 +134,6 @@ class ScenePlay extends Scene {
       if (!cards[i].classList.contains("deck")) cards[i].remove();
       else i++;
     }
-
-    console.log(this.cards?.length);
   }
 
   shuffle() {
