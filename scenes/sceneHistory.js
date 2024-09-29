@@ -6,13 +6,10 @@ class SceneHistory extends Scene {
   start() {
     super.start();
     if (!this.elem) return;
-    
-    let elemBack = document.createElement("button");
-    elemBack.className = "name back";
-    elemBack.innerText = "<";
-    elemBack.addEventListener("click", e => {
-      setScene(scenes.count);
-    });
+
+    this.elem.replaceChildren();
+
+    if (!game) return;
 
     let titleElem = document.createElement("div");
     titleElem.className = "title";
@@ -31,7 +28,6 @@ class SceneHistory extends Scene {
     dealerElem.appendChild(dealerElemScore);
 
 
-    this.elem.appendChild(elemBack);
     this.elem.appendChild(titleElem);
     this.elem.appendChild(dealerElem);
 

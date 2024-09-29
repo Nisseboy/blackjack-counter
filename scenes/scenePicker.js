@@ -7,6 +7,8 @@ class ScenePicker extends Scene {
     super.start();
     if (!this.elem) return;
 
+    this.elem.replaceChildren();
+
 
     for (let gi = 0; gi < games.length; gi++) {
       let g = games[gi];

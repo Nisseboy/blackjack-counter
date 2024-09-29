@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="scene"></div>
+  <div class="navbar">
+    <button class="navbar-item" onclick="setScene(scenes.picker)">Picker</button>
+    <button class="navbar-item" onclick="setScene(scenes.count)">Count</button>
+    <button class="navbar-item" onclick="setScene(scenes.history)">History</button>
+
+    <button class="navbar-item" style="margin-left: 1rem;" onclick="setScene(scenes.play)">Play</button>
+  </div>
+
+  <div class="scene normal"></div>
+  <div class="scene play hidden"></div>
 
   <script src="scenes/scene.js"></script>
   <script src="scenes/sceneCount.js"></script>
@@ -15,6 +24,7 @@
   <script src="scenes/sceneHistory.js"></script>
   <script src="scenes/scenePicker.js"></script>
   <script src="scenes/scenePickerEdit.js"></script>
+  <script src="scenes/scenePlay.js"></script>
   <script src="index.js"></script>
 </body>
 </html>

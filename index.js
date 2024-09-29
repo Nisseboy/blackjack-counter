@@ -10,6 +10,7 @@ let scenes = {
   history: new SceneHistory(),
   picker: new ScenePicker(),
   pickerEdit: new ScenePickerEdit(),
+  play: new ScenePlay(),
 }
 let scene;
 setScene(scenes.picker);

@@ -7,13 +7,8 @@ class ScenePickerEdit extends Scene {
     super.start();
     if (!this.elem) return;
 
-    let elemBack = document.createElement("button");
-    elemBack.className = "name back";
-    elemBack.innerText = "<";
-    elemBack.addEventListener("click", e => {
-      setScene(scenes.picker);
-    });
-    this.elem.appendChild(elemBack);
+    this.elem.replaceChildren();
+
 
     for (let gi = 0; gi < games.length; gi++) {
       let g = games[gi];

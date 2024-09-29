@@ -7,13 +7,9 @@ class SceneCount extends Scene {
     super.start();
     if (!this.elem) return;
 
-    
-    let elemBack = document.createElement("button");
-    elemBack.className = "name back";
-    elemBack.innerText = "<";
-    elemBack.addEventListener("click", e => {
-      setScene(scenes.picker);
-    });
+    this.elem.replaceChildren();
+
+    if (!game) return;
 
     let titleElem = document.createElement("div");
     titleElem.className = "title";
@@ -32,7 +28,6 @@ class SceneCount extends Scene {
     dealerElem.appendChild(dealerElemScore);
 
 
-    this.elem.appendChild(elemBack);
     this.elem.appendChild(titleElem);
     this.elem.appendChild(dealerElem);
 
