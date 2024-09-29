@@ -18,11 +18,17 @@ class ScenePlay extends Scene {
     })
     this.elem.appendChild(elemClear);
 
+    this.elemCount = document.createElement("button");
+    this.elemCount.innerText = "52";
+    this.elem.appendChild(this.elemCount);
+
     this.deckCard = this.createCard("5S");
     this.deckCard.elem.classList.add("deck");
 
     this.deck = [];
     this.shuffleCards();
+
+
   }
 
   start() {
@@ -30,12 +36,13 @@ class ScenePlay extends Scene {
     this.elem.classList.toggle("hidden", false);
   }
 
-  createCard(value, x = 10, y = 40) {
+  createCard(value, x = 10, y = 60) {
     let card = {};
 
     let elem = document.createElement("img");
     elem.className = "card";
     elem.src = `https://deckofcardsapi.com/static/img/${value}.png`;
+    elem.draggable = false;
 
     let relx = 0;
     let rely = 0;
@@ -43,13 +50,16 @@ class ScenePlay extends Scene {
       relx = e.clientX - card.x;
       rely = e.clientY - card.y;
 
-      document.addEventListener("dragover", dragover);
-      document.addEventListener("dragend", dragend);
+      document.addEventListener("mousemove", dragover);
+      document.addEventListener("mouseup", dragend);
+      document.addEventListener("touchmove", dragover);
+      document.addEventListener("touchend", dragend);
 
       if (elem.classList.contains("deck")) {
         card = this.createCard(this.pickCard(), card.x, card.y);
         relx = e.clientX - x;
         rely = e.clientY - y;
+        this.elemCount.innerText = this.cards?.length + "";
         if (this.cards.length == 12) alert("12 cards left");
       }
     }
@@ -57,11 +67,14 @@ class ScenePlay extends Scene {
       this.setPos(card, e.clientX - relx, e.clientY - rely);
     }
     let dragend = e => {
-      document.removeEventListener("dragover", dragover);
-      document.removeEventListener("dragend", dragend);
+      document.removeEventListener("mousemove", dragover);
+      document.removeEventListener("mouseup", dragend);
+      document.removeEventListener("touchmove", dragover);
+      document.removeEventListener("touchend", dragend);
     }
 
-    elem.addEventListener("dragstart", dragstart);
+    elem.addEventListener("mousedown", dragstart);
+    elem.addEventListener("touchstart", dragstart);
 
     card.elem = elem;
     card.x = 0;
@@ -98,6 +111,7 @@ class ScenePlay extends Scene {
         this.cards.push(val + color);
       }
     }
+    this.elemCount.innerText = this.cards?.length + "";
   }
 
   clear() {

@@ -108,5 +108,9 @@ input {
   position: absolute;
 
   width: 4rem;
+  height: 5.6rem;
   user-select: none;
+
+  background-image: url("https://deckofcardsapi.com/static/img/5S.png");
+  background-size: cover;
 }
