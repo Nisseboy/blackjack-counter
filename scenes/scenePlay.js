@@ -22,7 +22,7 @@ class ScenePlay extends Scene {
     this.elemCount.innerText = "52";
     this.elem.appendChild(this.elemCount);
 
-    this.deckCard = this.createCard("5S");
+    this.deckCard = this.createCard("back");
     this.deckCard.elem.classList.add("deck");
 
     this.deck = [];
@@ -61,11 +61,13 @@ class ScenePlay extends Scene {
 
       if (elem.classList.contains("deck")) {
         card = this.createCard(this.pickCard(), card.x, card.y);
-        relx = pos.pageX - x;
-        rely = pos.pageY - y;
+        relx = pos.pageX - 10;
+        rely = pos.pageY - 60;
         this.elemCount.innerText = this.cards?.length + "";
         if (this.cards.length == 12) alert("12 cards left");
       }
+
+      dragover(e);
     }
     let dragover = e => {
       let pos = e;
