@@ -110,7 +110,7 @@ input {
     height: 1.5rem;
   };
 
-  height: calc(90vh);
+  height: 70vh;
 
   background-image: url("https://media.istockphoto.com/id/1198045419/photo/poker-table-in-casino-top-view.jpg?s=612x612&w=0&k=20&c=B0c-pT4GqZ4qBJkNDC8TYSs7C018DNEROiFJOr1QAC8=");
   background-size: cover;
