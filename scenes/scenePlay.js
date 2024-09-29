@@ -47,8 +47,11 @@ class ScenePlay extends Scene {
     let relx = 0;
     let rely = 0;
     let dragstart = e => {
-      relx = e.clientX - card.x;
-      rely = e.clientY - card.y;
+      let pos = e;
+      if (e.targetTouches && e.targetTouches[0]) pos = e.targetTouches[0];
+
+      relx = pos.pageX - card.x;
+      rely = pos.pageY - card.y;
 
       document.addEventListener("mousemove", dragover);
       document.addEventListener("mouseup", dragend);
@@ -57,14 +60,17 @@ class ScenePlay extends Scene {
 
       if (elem.classList.contains("deck")) {
         card = this.createCard(this.pickCard(), card.x, card.y);
-        relx = e.clientX - x;
-        rely = e.clientY - y;
+        relx = pos.pageX - x;
+        rely = pos.pageY - y;
         this.elemCount.innerText = this.cards?.length + "";
         if (this.cards.length == 12) alert("12 cards left");
       }
     }
     let dragover = e => {
-      this.setPos(card, e.clientX - relx, e.clientY - rely);
+      let pos = e;
+      if (e.targetTouches && e.targetTouches[0]) pos = e.targetTouches[0];
+
+      this.setPos(card, pos.pageX - relx, pos.pageY - rely);
     }
     let dragend = e => {
       document.removeEventListener("mousemove", dragover);
