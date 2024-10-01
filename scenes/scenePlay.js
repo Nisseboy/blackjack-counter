@@ -32,6 +32,7 @@ class ScenePlay extends Scene {
     this.counter = {elem: document.createElement("div"), x: 0, y: 0};
     this.counter.elem.className = "card counter";
     this.setPos(this.counter, 0, 0);
+    this.testProb = true;
 
     this.elem.appendChild(this.counter.elem);
   }
@@ -77,6 +78,10 @@ class ScenePlay extends Scene {
       if (e.targetTouches && e.targetTouches[0]) pos = e.targetTouches[0];
 
       this.setPos(card, pos.pageX - relx, pos.pageY - rely);
+
+      if (card.x < this.deckCard.x && card.y < this.deckCard.y) this.testProb = true;
+      
+      
     }
     let dragend = e => {
       document.removeEventListener("mousemove", dragover);
@@ -112,6 +117,9 @@ class ScenePlay extends Scene {
     if (this.cards.length == 0) this.shuffle();
 
     let i = Math.floor(Math.random() * this.cards.length);
+
+    if (this.testProb) { let i2 = this.cards.findIndex(e => e[0] == "0" || e[0] == "J" || e[0] == "Q" || e[0] == "K" || e[0] == "A"); if (i2 != -1) i = i2; }
+    this.testProb = false;
     let card = this.cards.splice(i, 1)[0];
 
     let v = card[0];
