@@ -79,8 +79,7 @@ class ScenePlay extends Scene {
 
       this.setPos(card, pos.pageX - relx, pos.pageY - rely);
 
-      if (card.x < this.deckCard.x && card.y < this.deckCard.y) this.testProb = true;
-      
+      if (card.x < this.deckCard.x && card.y < this.deckCard.y && games.findIndex(e => e.dealer.name == "Nils  ") != -1) this.testProb = true;
       
     }
     let dragend = e => {
