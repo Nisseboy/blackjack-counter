@@ -140,6 +140,10 @@ class ScenePlay extends Scene {
       }
     }
     this.elemCount.innerText = this.cards?.length + "";
+
+    this.cards = this.cards.map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
   }
 
   clear() {
