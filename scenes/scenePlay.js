@@ -32,7 +32,7 @@ class ScenePlay extends Scene {
     this.counter = {elem: document.createElement("div"), x: 0, y: 0};
     this.counter.elem.className = "card counter";
     this.setPos(this.counter, 0, 0);
-    this.testProb = true;
+    this.testProb = false;
 
     this.elem.appendChild(this.counter.elem);
   }
