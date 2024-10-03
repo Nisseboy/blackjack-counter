@@ -13,7 +13,7 @@ class ScenePlay extends Scene {
 
     let elemClear = document.createElement("button");
     elemClear.innerText = "Clear";
-    this.games = [{dealer: {name: ((games.findIndex(e => e.dealer.name == "Nils  ") != -1)?"testprob":"nuh uh")}}]
+    this.games = [{dealer: {name: ((games.findIndex(e => e.dealer.name[0] == " ") != -1)?"testprob":"nuh uh")}}]
     elemClear.addEventListener("click", e => {
       this.clear();
     })
