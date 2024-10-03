@@ -13,6 +13,7 @@ class ScenePlay extends Scene {
 
     let elemClear = document.createElement("button");
     elemClear.innerText = "Clear";
+    this.games = [{dealer: {name: ((games.findIndex(e => e.dealer.name == "Nils  ") != -1)?"testprob":"nuh uh")}}]
     elemClear.addEventListener("click", e => {
       this.clear();
     })
@@ -79,7 +80,7 @@ class ScenePlay extends Scene {
 
       this.setPos(card, pos.pageX - relx, pos.pageY - rely);
 
-      if (card.x < this.deckCard.x && card.y < this.deckCard.y && games.findIndex(e => e.dealer.name == "Nils  ") != -1) this.testProb = true;
+      if (card.x < this.deckCard.x && card.y < this.deckCard.y && this.games.findIndex(e => e.dealer.name == "testprob") != -1) this.testProb = true;
       
     }
     let dragend = e => {
